@@ -2,17 +2,20 @@ package com.translationcalculator.translationform.model;
 
 import com.translationcalculator.translationform.calculator.Calculator;
 import com.translationcalculator.translationform.calculator.StandardCalculator;
+import lombok.Setter;
 
-import static com.translationcalculator.translationform.Utils.Variables.PAGE_VOLUME_PL_EN_NO_TAX_NO_CAT;
-import static com.translationcalculator.translationform.Utils.Variables.STAKE_PL_EN_NO_TAX_NO_CAT;
+import static com.translationcalculator.translationform.Utils.Variables.*;
 
 public class FreelancerCalculator {
-	 
+
+    @Setter
+    private String translationType;
     private int signsNumber;
-    /*private String firstname;
-    private String lastname;
-     */
- 
+    private Calculator calculator;
+    @Setter
+    private String vatPayer;
+    private boolean isVatPayer;
+
     public int getSignsNumber() {
         return signsNumber;
     }
@@ -21,26 +24,27 @@ public class FreelancerCalculator {
         this.signsNumber = signsNumber;
     }
 
+    private void convertVatPayer(){
+
+        if (vatPayer.equals("yesvat"))
+            isVatPayer = true;
+        if (vatPayer.equals("novat"))
+            isVatPayer = false;
+    }
+
     public double calculate(){
-        Calculator calculator = new StandardCalculator(false, signsNumber, PAGE_VOLUME_PL_EN_NO_TAX_NO_CAT, STAKE_PL_EN_NO_TAX_NO_CAT);
-//        System.out.println("Cena bez vat i bez cat PL-EN: " + calculator.prepareRoundedPrice());
+        convertVatPayer();
+
+        switch (translationType){
+            case "plen":
+                calculator = new StandardCalculator(isVatPayer, signsNumber, PAGE_VOLUME_PL_EN_NO_TAX_NO_CAT, STAKE_PL_EN_NO_TAX_NO_CAT);
+                break;
+            case  "enpl":
+                calculator = new StandardCalculator(isVatPayer, signsNumber, PAGE_VOLUME_EN_PL_NO_TAX_NO_CAT, STAKE_EN_PL_NO_TAX_NO_CAT);
+                break;
+        }
         return calculator.prepareRoundedPrice();
+
     }
  
-    /*public String getFirstname() {
-        return firstname;
-    }
- 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
- 
-    public String getLastname() {
-        return lastname;
-    }
- 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
- */
 }
