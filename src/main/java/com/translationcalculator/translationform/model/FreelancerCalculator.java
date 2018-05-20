@@ -1,5 +1,11 @@
 package com.translationcalculator.translationform.model;
 
+import com.translationcalculator.translationform.calculator.Calculator;
+import com.translationcalculator.translationform.calculator.StandardCalculator;
+
+import static com.translationcalculator.translationform.Utils.Variables.PAGE_VOLUME_PL_EN_NO_TAX_NO_CAT;
+import static com.translationcalculator.translationform.Utils.Variables.STAKE_PL_EN_NO_TAX_NO_CAT;
+
 public class FreelancerCalculator {
 	 
     private int signsNumber;
@@ -15,8 +21,10 @@ public class FreelancerCalculator {
         this.signsNumber = signsNumber;
     }
 
-    public int calculate(){
-        return signsNumber*2;
+    public double calculate(){
+        Calculator calculator = new StandardCalculator(false, signsNumber, PAGE_VOLUME_PL_EN_NO_TAX_NO_CAT, STAKE_PL_EN_NO_TAX_NO_CAT);
+//        System.out.println("Cena bez vat i bez cat PL-EN: " + calculator.prepareRoundedPrice());
+        return calculator.prepareRoundedPrice();
     }
  
     /*public String getFirstname() {
