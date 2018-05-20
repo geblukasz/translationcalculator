@@ -1,21 +1,25 @@
-package com.javasampleapproach.formsubmission.model;
+package com.translationcalculator.translationform.model;
 
 public class FreelancerCalculator {
 	 
-    private long signsNumber;
-    private String firstname;
+    private int signsNumber;
+    /*private String firstname;
     private String lastname;
-     
+     */
  
-    public long getSignsNumber() {
+    public int getSignsNumber() {
         return signsNumber;
     }
  
-    public void setSignsNumber(long signsNumber) {
+    public void setSignsNumber(int signsNumber) {
         this.signsNumber = signsNumber;
     }
+
+    public int calculate(){
+        return signsNumber*2;
+    }
  
-    public String getFirstname() {
+    /*public String getFirstname() {
         return firstname;
     }
  
@@ -30,5 +34,5 @@ public class FreelancerCalculator {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
- 
+ */
 }

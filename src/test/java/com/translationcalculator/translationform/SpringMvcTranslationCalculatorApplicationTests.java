@@ -1,4 +1,4 @@
-package com.javasampleapproach.formsubmission;
+package com.translationcalculator.translationform;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
