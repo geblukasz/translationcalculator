@@ -2,6 +2,7 @@ package com.translationcalculator.translationform.calculator;
 
 
 import com.translationcalculator.translationform.Utils.Variables;
+import com.translationcalculator.translationform.model.CatToolsWebCalculator;
 
 import java.text.DecimalFormat;
 
@@ -14,6 +15,33 @@ public class CatToolsCalculator extends MainCalculator implements Calculator {
     private int numberOfNoMatchWords;
     private int numberOf75to99PercentMatchWords;
     private int numberOf100PercentMatchWords;
+    private CatToolsWebCalculator catToolsWebCalculator;
+
+    double priceForNoMatchWords;
+    double priceFor75to99MatchWords;
+    double priceFor100MatchWords;
+    double totalPrice;
+    double taxPrice = totalPrice * Variables.TAX;
+
+    public double getPriceForNoMatchWords() {
+        return priceForNoMatchWords;
+    }
+
+    public double getPriceFor75to99MatchWords() {
+        return priceFor75to99MatchWords;
+    }
+
+    public double getPriceFor100MatchWords() {
+        return priceFor100MatchWords;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public double getTaxPrice() {
+        return taxPrice;
+    }
 
     public CatToolsCalculator(boolean isTaxPayer, double oneWordPrice, int numberOfNoMatchWords, int numberOf75to99PercentMatchWords, int numberOf100PercentMatchWords) {
         super(false, isTaxPayer);
@@ -40,10 +68,11 @@ public class CatToolsCalculator extends MainCalculator implements Calculator {
 
     @Override
     public double calculatePrice() {
-        double priceForNoMatchWords = calculatePriceDependingOnMatchWords(numberOfNoMatchWords, STAKE_FOR_NO_MATCH_WORDS);
-        double priceFor75to99MatchWords = calculatePriceDependingOnMatchWords(numberOf75to99PercentMatchWords, STAKE_FOR_75_99_PERCENT_MATCH_WORDS);
-        double priceFor100MatchWords = calculatePriceDependingOnMatchWords(numberOf100PercentMatchWords, STAKE_FOR_100_PERCENT_MATCH_WORDS);
-        double totalPrice = priceForNoMatchWords + priceFor75to99MatchWords + priceFor100MatchWords;
+        priceForNoMatchWords = calculatePriceDependingOnMatchWords(numberOfNoMatchWords, STAKE_FOR_NO_MATCH_WORDS);
+        priceFor75to99MatchWords = calculatePriceDependingOnMatchWords(numberOf75to99PercentMatchWords, STAKE_FOR_75_99_PERCENT_MATCH_WORDS);
+        priceFor100MatchWords = calculatePriceDependingOnMatchWords(numberOf100PercentMatchWords, STAKE_FOR_100_PERCENT_MATCH_WORDS);
+        totalPrice = priceForNoMatchWords + priceFor75to99MatchWords + priceFor100MatchWords;
+        taxPrice = totalPrice * Variables.TAX;
         return isTaxPayer ? totalPrice + (totalPrice * Variables.TAX) : totalPrice;
     }
 

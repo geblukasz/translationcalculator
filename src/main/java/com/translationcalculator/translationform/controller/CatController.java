@@ -21,14 +21,17 @@ public class CatController {
     }
 
     @RequestMapping(value = "/cattoolsform", method = RequestMethod.POST)
-    String customerSubmit(@ModelAttribute FreelancerCalculator freelancerCalculator, Model model, ModelMap map, HttpServletRequest request) {
-        freelancerCalculator.setTranslationType(request.getParameter("translationType"));
-        freelancerCalculator.setVatPayer(request.getParameter("isVatPayer"));
+    String customerSubmit(@ModelAttribute CatToolsWebCalculator calculator, Model model, ModelMap map, HttpServletRequest request) {
+        calculator.setTranslationType(request.getParameter("translationType"));
+        calculator.setVatPayer(request.getParameter("isVatPayer"));
 
-        model.addAttribute("freelancerCalculator", freelancerCalculator);
-        map.put("totalPrice", freelancerCalculator.calculate());
+        model.addAttribute("catToolsWebCalculator", calculator);
+        map.put("n7599MatchWords", calculator.getPriceFor75to99MatchWords());
+        map.put("noMatchWords", calculator.getPriceForNoMatchWords());
+        map.put("n100matchWords", calculator.getPriceFor100MatchWords());
+        map.put("totalPrice", calculator.calculate());
 
-        return "result";
+        return "catresult";
     }
 }
 

@@ -7,7 +7,11 @@
 <body>
 <h1>Freelancer Form</h1>
 <form action="#" th:action="@{/cattoolsform}" th:object="${catToolsWebCalculator}" method="post">
-    <p>Signs Number: <input type="text" th:field="*{signsNumber}"/></p>
+
+    <p>Number of words:</p>
+    <p>No match: <input type="text" th:field="*{numberOfNoMatchWords}"/></p>
+    <p>75 to 99% match: <input type="text" th:field="*{numberOf75to99PercentMatchWords}"/></p>
+    <p>100% match: <input type="text" th:field="*{numberOf100PercentMatchWords}"/></p>
 
     <div><input type="radio" name="translationType" value="plen" checked="checked" />Polish-English Translation</div>
     <div><input type="radio" name="translationType" value="enpl" />English-Polish Translation</div>
