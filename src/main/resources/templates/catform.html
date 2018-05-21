@@ -13,15 +13,18 @@
     <p>75 to 99% match: <input type="text" th:field="*{numberOf75to99PercentMatchWords}"/></p>
     <p>100% match: <input type="text" th:field="*{numberOf100PercentMatchWords}"/></p>
 
-    <div><input type="radio" name="translationType" value="plen" checked="checked" />Polish-English Translation</div>
-    <div><input type="radio" name="translationType" value="enpl" />English-Polish Translation</div>
+    <div><input type="radio" name="translationType" value="plen" checked="checked"/>Polish-English Translation</div>
+    <div><input type="radio" name="translationType" value="enpl"/>English-Polish Translation</div>
 
     <br/>
-    <div><input type="radio" name="isVatPayer" value="yesvat" checked="checked" />I pay VAT tax</div>
-    <div><input type="radio" name="isVatPayer" value="novat" />I do not pay VAT tax</div>
+    <div><input type="radio" name="isVatPayer" value="yesvat" checked="checked"/>I pay VAT tax</div>
+    <div><input type="radio" name="isVatPayer" value="novat"/>I do not pay VAT tax</div>
             
 
-    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+    <p>
+        <input type="submit" value="Submit"/>
+        <input type="reset" value="Reset"/>
+    </p>
 </form>
 </body>
 </html>
