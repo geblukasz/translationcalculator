@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Result</h1>
+<!--
+<p th:text="'Signs Number: ' + ${catToolsWebCalculator.signsNumber}" />
+-->
+<!--<p th:text="'First Name: ' + ${freelancerCalculator.firstname}" />-->
+<!--<p th:text="'Last Name: ' + ${freelancerCalculator.lastname}" />-->
+
+<p th:text="'Price for 75 - 99 % Match Words: '+ ${n7599MatchWords}" />
+<p th:text="'Price for No Match Words: '+ ${noMatchWords}" />
+<p th:text="'Price for 100% Match Words: '+ ${n100matchWords}" />
+
+<p th:if="${taxPrice != null}" type="hidden" th:text="'Tax Price: ' + ${taxPrice} "/>
+<p th:if="${netPrice != null}" type="hidden" th:text="'Net Price: ' + ${netPrice} "/>
+
+<p th:text="'Total price : '+ ${totalPrice}" />
+
+<a href="/cattoolsform">Submit another Customer Form</a>
+</body>
+</html>

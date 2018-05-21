@@ -5,6 +5,7 @@ import com.translationcalculator.translationform.calculator.StandardCalculator;
 import lombok.Setter;
 
 import static com.translationcalculator.translationform.Utils.Variables.*;
+import lombok.*;
 
 public class FreelancerCalculator {
 
@@ -19,7 +20,7 @@ public class FreelancerCalculator {
     public int getSignsNumber() {
         return signsNumber;
     }
- 
+
     public void setSignsNumber(int signsNumber) {
         this.signsNumber = signsNumber;
     }
@@ -46,5 +47,4 @@ public class FreelancerCalculator {
         return calculator.prepareRoundedPrice();
 
     }
- 
 }
