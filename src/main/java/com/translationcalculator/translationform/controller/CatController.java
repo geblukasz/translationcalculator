@@ -1,7 +1,6 @@
 package com.translationcalculator.translationform.controller;
 
 import com.translationcalculator.translationform.model.CatToolsWebCalculator;
-import com.translationcalculator.translationform.model.FreelancerCalculator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -23,13 +22,17 @@ public class CatController {
     @RequestMapping(value = "/cattoolsform", method = RequestMethod.POST)
     String customerSubmit(@ModelAttribute CatToolsWebCalculator calculator, Model model, ModelMap map, HttpServletRequest request) {
         calculator.setTranslationType(request.getParameter("translationType"));
-        calculator.setVatPayer(request.getParameter("isVatPayer"));
+        calculator.setVatPayerString(request.getParameter("isVatPayer"));
 
         model.addAttribute("catToolsWebCalculator", calculator);
+        map.put("totalPrice", calculator.prepareCalculations());
         map.put("n7599MatchWords", calculator.getPriceFor75to99MatchWords());
         map.put("noMatchWords", calculator.getPriceForNoMatchWords());
         map.put("n100matchWords", calculator.getPriceFor100MatchWords());
-        map.put("totalPrice", calculator.calculate());
+        if (calculator.isVatPayer()){
+            map.put("taxPrice", calculator.getTaxPrice());
+            map.put("netPrice", calculator.getNetPrice());
+        }
 
         return "catresult";
     }

@@ -15,9 +15,12 @@
 <p th:text="'Price for 75 - 99 % Match Words: '+ ${n7599MatchWords}" />
 <p th:text="'Price for No Match Words: '+ ${noMatchWords}" />
 <p th:text="'Price for 100% Match Words: '+ ${n100matchWords}" />
+
+<p th:if="${taxPrice != null}" type="hidden" th:text="'Tax Price: ' + ${taxPrice} "/>
+<p th:if="${netPrice != null}" type="hidden" th:text="'Net Price: ' + ${netPrice} "/>
+
 <p th:text="'Total price : '+ ${totalPrice}" />
 
-
-<a href="/freelancerform">Submit another Customer Form</a>
+<a href="/cattoolsform">Submit another Customer Form</a>
 </body>
 </html>
