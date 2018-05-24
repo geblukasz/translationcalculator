@@ -3,16 +3,31 @@ package com.translationcalculator.translationform;
 import com.translationcalculator.translationform.calculator.Calculator;
 import com.translationcalculator.translationform.calculator.CatToolsCalculator;
 import com.translationcalculator.translationform.calculator.StandardCalculator;
+import com.translationcalculator.translationform.controller.StorageProperties;
+import com.translationcalculator.translationform.controller.StorageService;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 
 import static com.translationcalculator.translationform.Utils.Variables.*;
 
 @SpringBootApplication
+@EnableConfigurationProperties(StorageProperties.class)
 public class SpringMvcTranslationCalculatorApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringMvcTranslationCalculatorApplication.class, args);
+
+    }
+
+    @Bean
+    CommandLineRunner init(StorageService storageService) {
+        return (args) -> {
+            storageService.deleteAll();
+            storageService.init();
+        };
     }
 
 
