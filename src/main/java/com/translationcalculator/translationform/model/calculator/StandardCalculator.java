@@ -1,4 +1,4 @@
-package com.translationcalculator.translationform.calculator;
+package com.translationcalculator.translationform.model.calculator;
 
 
 import java.text.DecimalFormat;
@@ -45,7 +45,7 @@ public class StandardCalculator extends MainCalculator implements Calculator {
 
     @Override
     public double prepareRoundedPrice() {
-        Double d = new Double(roundPrice().replace("\"",""));
+        Double d = new Double(roundPrice().replace("\"", ""));
         return d;
     }
 

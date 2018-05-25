@@ -1,8 +1,8 @@
 package com.translationcalculator.translationform;
 
-import com.translationcalculator.translationform.calculator.Calculator;
-import com.translationcalculator.translationform.calculator.CatToolsCalculator;
-import com.translationcalculator.translationform.calculator.StandardCalculator;
+import com.translationcalculator.translationform.model.calculator.Calculator;
+import com.translationcalculator.translationform.model.calculator.CatToolsCalculator;
+import com.translationcalculator.translationform.model.calculator.StandardCalculator;
 import com.translationcalculator.translationform.config.StorageProperties;
 import com.translationcalculator.translationform.service.StorageService;
 import org.springframework.boot.CommandLineRunner;

@@ -1,6 +1,6 @@
 package com.translationcalculator.translationform.model;
 
-import com.translationcalculator.translationform.calculator.Calculator;
+import com.translationcalculator.translationform.model.calculator.Calculator;
 import lombok.Setter;
 
 import java.text.DecimalFormat;

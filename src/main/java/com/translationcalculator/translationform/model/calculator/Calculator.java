@@ -1,4 +1,4 @@
-package com.translationcalculator.translationform.calculator;
+package com.translationcalculator.translationform.model.calculator;
 
 public interface Calculator {
 
