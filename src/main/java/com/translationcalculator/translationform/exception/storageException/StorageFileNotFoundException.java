@@ -1,4 +1,6 @@
-package com.translationcalculator.translationform.controller;
+package com.translationcalculator.translationform.exception.storageException;
+
+import com.translationcalculator.translationform.exception.storageException.StorageException;
 
 public class StorageFileNotFoundException extends StorageException {
 

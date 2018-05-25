@@ -1,17 +1,14 @@
 package com.translationcalculator.translationform.controller;
 
+import com.translationcalculator.translationform.TestFile;
+import com.translationcalculator.translationform.exception.storageException.StorageFileNotFoundException;
+import com.translationcalculator.translationform.service.StorageService;
 import org.springframework.core.io.Resource;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -37,7 +34,7 @@ public class FileUploadController {
         this.storageService = storageService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/fileupload")
     public String listUploadedFiles(Model model) throws IOException {
 
         model.addAttribute("files", storageService.loadAll().map(
@@ -57,7 +54,7 @@ public class FileUploadController {
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    @PostMapping("/")
+    @PostMapping("/fileupload")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) throws IOException {
 
@@ -72,7 +69,8 @@ public class FileUploadController {
 
 
 
-        return "redirect:/";
+//        return "uploadForm";
+        return "redirect:/fileupload";
     }
 
     @ExceptionHandler(StorageFileNotFoundException.class)

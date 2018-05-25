@@ -1,4 +1,4 @@
-package com.translationcalculator.translationform.controller;
+package com.translationcalculator.translationform.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
