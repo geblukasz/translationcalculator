@@ -1,11 +1,10 @@
-package com.translationcalculator.translationform.model;
+package com.translationcalculator.translationform.model.calculator;
 
-import com.translationcalculator.translationform.model.calculator.Calculator;
 import lombok.Setter;
 
 import java.text.DecimalFormat;
 
-import static com.translationcalculator.translationform.Utils.Variables.*;
+import static com.translationcalculator.translationform.utils.Variables.*;
 
 public class CatToolsWebCalculator {
 

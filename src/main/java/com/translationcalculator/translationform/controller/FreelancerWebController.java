@@ -1,8 +1,10 @@
 package com.translationcalculator.translationform.controller;
 
-import com.translationcalculator.translationform.model.FreelancerCalculator;
+import com.translationcalculator.translationform.model.calculator.FreelancerCalculator;
+import com.translationcalculator.translationform.service.StorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -15,6 +17,13 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class FreelancerWebController {
+
+    private final StorageService storageService;
+
+    @Autowired
+    public FreelancerWebController(StorageService storageService) {
+        this.storageService = storageService;
+    }
 
     Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -34,5 +43,4 @@ public class FreelancerWebController {
 
         return "result";
     }
-
 }

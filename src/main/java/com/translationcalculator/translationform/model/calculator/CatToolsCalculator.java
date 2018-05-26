@@ -1,12 +1,11 @@
 package com.translationcalculator.translationform.model.calculator;
 
 
-import com.translationcalculator.translationform.Utils.Variables;
-import com.translationcalculator.translationform.model.CatToolsWebCalculator;
+import com.translationcalculator.translationform.utils.Variables;
 
 import java.text.DecimalFormat;
 
-import static com.translationcalculator.translationform.Utils.Variables.*;
+import static com.translationcalculator.translationform.utils.Variables.*;
 
 public class CatToolsCalculator extends MainCalculator implements Calculator {
 

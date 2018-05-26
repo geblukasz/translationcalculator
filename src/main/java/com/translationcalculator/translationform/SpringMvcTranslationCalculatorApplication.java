@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
-import static com.translationcalculator.translationform.Utils.Variables.*;
+import static com.translationcalculator.translationform.utils.Variables.*;
 
 @SpringBootApplication
 @EnableConfigurationProperties(StorageProperties.class)

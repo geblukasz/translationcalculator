@@ -1,6 +1,6 @@
 package com.translationcalculator.translationform.controller;
 
-import com.translationcalculator.translationform.model.CatToolsWebCalculator;
+import com.translationcalculator.translationform.model.calculator.CatToolsWebCalculator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;

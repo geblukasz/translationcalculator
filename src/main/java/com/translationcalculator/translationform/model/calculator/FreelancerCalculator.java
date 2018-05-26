@@ -1,10 +1,8 @@
-package com.translationcalculator.translationform.model;
+package com.translationcalculator.translationform.model.calculator;
 
-import com.translationcalculator.translationform.model.calculator.Calculator;
-import com.translationcalculator.translationform.model.calculator.StandardCalculator;
 import lombok.Setter;
 
-import static com.translationcalculator.translationform.Utils.Variables.*;
+import static com.translationcalculator.translationform.utils.Variables.*;
 
 public class FreelancerCalculator {
 

@@ -1,4 +1,4 @@
-package com.translationcalculator.translationform.Reader;
+package com.translationcalculator.translationform.reader.TextReader;
 
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
@@ -7,9 +7,9 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import java.io.File;
 import java.io.FileInputStream;
 
-public class DocReader {
+public class DocxReader {
 
-    public void czytaj(File file) {
+    public void readDocxFile(File file) {
         try {
 //            FileInputStream fis = new FileInputStream("D:\\java\\JavaPytaniaRekrutacyjne.docx");
             FileInputStream fis = new FileInputStream(file.getName());

@@ -1,4 +1,4 @@
-package com.translationcalculator.translationform.Reader;
+package com.translationcalculator.translationform.reader;
 
 public interface Reader {
 

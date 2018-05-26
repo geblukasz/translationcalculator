@@ -1,6 +1,6 @@
 package com.translationcalculator.translationform.controller;
 
-import com.translationcalculator.translationform.TestFile;
+import com.translationcalculator.translationform.FileResolver;
 import com.translationcalculator.translationform.exception.storageException.StorageFileNotFoundException;
 import com.translationcalculator.translationform.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,17 +49,14 @@ public class FileUploadController {
     }
 
     @PostMapping("/fileupload")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes) throws IOException {
+    public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
 
         storageService.store(file);
         redirectAttributes.addFlashAttribute("message",
                 "You successfully uploaded " + file.getOriginalFilename() + "!");
 
-        System.out.println("a");
-        TestFile testFile = new TestFile(file);
-        testFile.readFile();
-
+        FileResolver fileResolver = new FileResolver(file);
+        fileResolver.resolve();
 
 
 

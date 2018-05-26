@@ -3,7 +3,7 @@ package com.translationcalculator.translationform.model.calculator;
 
 import java.text.DecimalFormat;
 
-import static com.translationcalculator.translationform.Utils.Variables.*;
+import static com.translationcalculator.translationform.utils.Variables.*;
 
 public class StandardCalculator extends MainCalculator implements Calculator {
 
