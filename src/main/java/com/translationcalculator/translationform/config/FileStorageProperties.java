@@ -3,7 +3,7 @@ package com.translationcalculator.translationform.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties("storage")
-public class StorageProperties {
+public class FileStorageProperties {
 
     /**
      * Folder location for storing files

@@ -24,7 +24,7 @@ public class PDFImageExtractor {
 
 
     public void extractImagesFromPdf() throws IOException {
-//        StorageProperties storageProperties = new StorageProperties();
+//        FileStorageProperties storageProperties = new FileStorageProperties();
 //        outputDirectory = storageProperties.getLocation();
 
 //        String outputDirectory = "D:\\java\\odzyskane\\";

@@ -3,6 +3,7 @@ package com.translationcalculator.translationform.controller;
 import com.translationcalculator.translationform.FileResolver;
 import com.translationcalculator.translationform.exception.storageException.StorageFileNotFoundException;
 import com.translationcalculator.translationform.service.StorageService;
+import com.translationcalculator.translationform.service.ZipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -20,6 +21,9 @@ import java.util.stream.Collectors;
 
 @Controller
 public class FileUploadController {
+
+    @Autowired
+    ZipService zipService;
 
     private final StorageService storageService;
 
@@ -55,8 +59,10 @@ public class FileUploadController {
         redirectAttributes.addFlashAttribute("message",
                 "You successfully uploaded " + file.getOriginalFilename() + "!");
 
+        zipService.getHello();
         FileResolver fileResolver = new FileResolver(file);
         fileResolver.resolve();
+
 
 
 
